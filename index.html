@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTP Movies</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header">
+            <div class="logo"><img src="logo web.png" alt="Logo"></div>
+            <div class="navbar">
+                <a href="#">Trang chủ</a>
+                <a href="#">Phim</a>
+                <a href="#">Trẻ em</a>
+            </div>
+            <div class="icons">
+                <div class="icon"></div>
+                <div class="icon"></div>
+                <div class="avatar"></div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <button class="btn-primary">Xem ngay</button>
+            <button class="btn-secondary">Thông tin chi tiết</button>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section class="section">
+            <h2>Vì bạn đã xem</h2>
+            <div class="movie-row scrollable-row" id="recommended-movies">
+                <!-- Các phim sẽ được thêm vào đây bằng JavaScript -->
+            </div>
+        </section>
+
+        <!-- Top Picks Section -->
+        <section class="section">
+            <h2>Lựa chọn hàng đầu</h2>
+            <div class="movie-row scrollable-row">
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal Popup for Movie Details -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="movieTitle"></h2>
+            <p id="movieYear"></p>
+            <p id="movieRating"></p>
+            <img id="moviePoster" src="" alt="Poster" style="width:100%; border-radius: 10px;">
+            <p id="movieDescription">Mô tả phim sẽ được hiển thị ở đây.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript để lấy dữ liệu phim từ API và hiển thị -->
+    <script>
+        // Hàm lấy danh sách phim gợi ý từ API và hiển thị chúng
+        async function getRecommendations() {
+            const genre = 'Action'; // Thay thế "Action" bằng thể loại bạn muốn gợi ý
+            try {
+                const response = await fetch(`http://127.0.0.1:5000/recommend?genre=${genre}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const movies = await response.json();
+        
+                // Lấy phần tử "recommended-movies" để hiển thị các phim
+                const movieRow = document.getElementById('recommended-movies');
+                
+                // Xóa các phim cũ
+                movieRow.innerHTML = '';
+        
+                // Thêm các phim từ gợi ý vào phần "movie-row"
+                movies.forEach(movie => {
+                    const movieCard = document.createElement('div');
+                    movieCard.classList.add('movie-card');
+        
+                    // Kiểm tra xem URL poster có tồn tại hay không
+                    const img = document.createElement('img');
+                    img.src = movie.poster_url || 'default_image.jpg'; // Đặt ảnh mặc định nếu không có poster
+                    img.alt = movie.title;
+
+                    // Gán sự kiện click để mở modal
+                    movieCard.addEventListener('click', () => openModal(movie));
+        
+                    movieCard.appendChild(img);
+                    movieRow.appendChild(movieCard);
+                });
+            } catch (error) {
+                console.error("Error fetching movies:", error);
+            }
+        }
+
+        // Hàm mở modal và hiển thị thông tin phim
+        function openModal(movie) {
+            const modal = document.getElementById('movieModal');
+            document.getElementById('movieTitle').innerText = movie.title;
+            document.getElementById('movieYear').innerText = `Năm phát hành: ${movie.year}`;
+            document.getElementById('movieRating').innerText = `Điểm trung bình: ${movie.vote_average}`;
+            document.getElementById('moviePoster').src = movie.poster_url || 'default_image.jpg';
+            document.getElementById('movieDescription').innerText = movie.description || "Không có mô tả cho phim này.";
+            modal.style.display = 'block';
+        }
+
+        // Đóng modal khi nhấn vào nút close
+        document.querySelector('.close').addEventListener('click', () => {
+            document.getElementById('movieModal').style.display = 'none';
+        });
+
+        // Đóng modal khi nhấn vào bên ngoài modal
+        window.onclick = function(event) {
+            const modal = document.getElementById('movieModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Gọi hàm khi tải trang
+        window.onload = getRecommendations;
+    </script>
+</body>
+</html>

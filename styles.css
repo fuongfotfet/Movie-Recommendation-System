@@ -1,0 +1,202 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 1280px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #FFFFFF;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    width: 89px;
+    height: 67px;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    gap: 15px;
+    margin-left: 10px;
+}
+
+.navbar a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Icons styling */
+.icons {
+    display: flex;
+    gap: 15px;
+    margin-right: 10px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    background-color: #1D1B20;
+    border-radius: 5px;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 50%;
+}
+
+/* Hero Section */
+.hero {
+    width: 100%;
+    height: 459px;
+    background: #D9D9D9;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    gap: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007AFF;
+}
+
+.btn-secondary {
+    background-color: #5E5E5E;
+}
+
+/* Sections */
+.section {
+    padding: 20px 40px;
+}
+
+.section h2 {
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+/* Movie Row */
+.movie-row {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 10px;
+}
+
+/* Enable horizontal scroll */
+.scrollable-row {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.movie-card {
+    width: 149px;
+    height: 179px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Styling for movie poster images inside movie-card */
+.movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Ẩn modal mặc định */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Các CSS khác của bạn (header, navbar, movie-card, etc) vẫn giữ nguyên */
+
+/* Styling for movie poster images inside movie-card */
+.movie-card {
+    width: 149px;
+    height: 179px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng chuyển đổi */
+    cursor: pointer; /* Thay đổi con trỏ thành biểu tượng chỉ tay khi hover */
+}
+
+/* Khi di chuột vào movie-card */
+.movie-card:hover {
+    transform: scale(1.05); /* Phóng to nhẹ */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Thêm bóng mờ */
+}
