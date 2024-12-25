@@ -8,21 +8,21 @@ from tqdm import tqdm
 import faiss
 
 user_columns = ['user_id', 'age', 'sex', 'occupation', 'zip_code']
-users_df = pd.read_csv(r'Movie-Recommendation-System\KNN\u_user.csv', sep='|', names=user_columns)
+users_df = pd.read_csv(r'data\u_user.csv', sep='|', names=user_columns)
 
 # genre_df = pd.read_csv("u_genre.csv", sep='|', encoding='latin-1')
 # genre_columns = ["unknown"] + list(genre_df[genre_df.columns[0]].values)
 
 movie_columns = ['movie_id', 'title', 'release_date', 'video_release_date', 'imdb_url']
 movies_df = pd.read_csv(
-    r'Movie-Recommendation-System\KNN\u_item.csv', 
+    r'data\u_item.csv',
     sep='|', 
     names=movie_columns + [f'genre_{i}' for i in range(19)],
     encoding='latin-1'
 )[["movie_id", "title"]]
 
 ratings_columns = ['user_id', 'movie_id', 'rating', 'unix_timestamp']
-ratings_df = pd.read_csv(r'Movie-Recommendation-System\KNN\u_data.csv', sep='\t', names=ratings_columns)
+ratings_df = pd.read_csv(r'data\u_data.csv', sep='\t', names=ratings_columns)
 
 rating_movies_df = ratings_df.merge(movies_df, how="outer")
 
