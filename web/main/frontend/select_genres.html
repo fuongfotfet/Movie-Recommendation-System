@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn Thể Loại Phim</title>
+    <link rel="stylesheet" href="./select_genres.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <img src="logo_web.png" alt="Logo" />
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="genre-selection">
+        <!-- Instructions -->
+        <div class="instruction-container">
+            <h1>Chọn 3 Thể Loại Phim Yêu Thích</h1>
+            <p>Chúng tôi sẽ gợi ý các bộ phim dựa trên sở thích của bạn.</p>
+            <p id="selection-progress" class="selection-progress">0/3 Thể Loại Được Chọn</p>
+        </div>
+
+        <!-- Genre Buttons -->
+        <div class="genres-container">
+            <button class="genre-button" data-genre="Action">Hành động</button>
+            <button class="genre-button" data-genre="History">Lịch Sử</button>
+            <button class="genre-button" data-genre="Horror">Kinh Dị</button>
+            <button class="genre-button" data-genre="Music">Nhạc</button>
+            <button class="genre-button" data-genre="Adventure">Phiêu Lưu</button>
+            <button class="genre-button" data-genre="Animation">Hoạt Hình</button>
+            <button class="genre-button" data-genre="Drama">Chính Kịch</button>
+            <button class="genre-button" data-genre="Family">Gia Đình</button>
+            <button class="genre-button" data-genre="Fantasy">Giả Tưởng</button>
+            <button class="genre-button" data-genre="Mystery">Bí Ẩn</button>
+            <button class="genre-button" data-genre="Romance">Lãng Mạn</button>
+            <button class="genre-button" data-genre="Thriller">Gây Cấn</button>
+            <button class="genre-button" data-genre="Comedy">Hài</button>
+            <button class="genre-button" data-genre="Crime">Hình Sự</button>
+            <button class="genre-button" data-genre="Documentary">Tài Liệu</button>
+            <button class="genre-button" data-genre="War">Chiến Tranh</button>
+            <button class="genre-button" data-genre="Western">Miền Tây</button>
+        </div>
+
+        <!-- Continue Button -->
+<div class="continue-container">
+    <button id="continue-button">Tiếp Tục</button>
+</div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="./select_genres.js"></script>
+</body>
+</html>

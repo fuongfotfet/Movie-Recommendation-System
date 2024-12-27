@@ -3,7 +3,6 @@ import sys
 import shutil
 import numpy as np
 import pandas as pd
-import tf
 
 from recommenders.utils.timer import Timer
 from recommenders.models.ncf.ncf_singlenode import NCF

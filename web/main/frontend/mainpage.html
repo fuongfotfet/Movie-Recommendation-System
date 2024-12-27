@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTP Movies</title>
+    <link rel="stylesheet" href="mainpage.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header">
+            <div class="logo"><img src="logo_web.png" alt="Logo"></div>
+            <div class="navbar">
+            </div>
+            <!-- Icons -->
+                <!-- Icons -->
+                <div class="icons">
+                    <div class="icon" title="Tìm kiếm">
+                        <i class="fa-solid fa-magnifying-glass"></i> <!-- Icon Search -->
+                    </div>
+                    <div class="icon" title="Lịch sử đánh giá">
+                        <i class="fa-solid fa-clock-rotate-left"></i> <!-- Icon History -->
+                    </div>
+                    <div class="icon" title="Tài khoản">
+                        <i class="fa-regular fa-user"></i> <!-- Icon User Avatar -->
+                    </div>
+                </div> 
+        </div>
+
+        <!-- Hero Section with Image -->
+        <section class="hero">
+            <div class="overlay"></div>
+            <img id="heroPoster" src="logo_web.png" alt="Hero Poster" class="hero-image">
+            <div class="hero-buttons">
+                <button class="btn-primary">Xem ngay</button>
+                <button class="btn-secondary">Thông tin chi tiết</button>
+            </div>
+        </section>
+
+        <!-- Section cho phim hot theo thể loại yêu thích -->
+        <section id="favorite-genres-container" class="section"></section>
+        
+        <!-- Recommendations Section -->
+        <section id="recommended-section" class="section" style="display: none;">
+            <h2 id="recommended-title">Vì bạn đã thích <span id="liked-movie-title"></span></h2>
+            <div class="movie-row scrollable-row" id="recommended-movies">
+                <!-- Các phim gợi ý sẽ được thêm vào đây bằng JavaScript -->
+            </div>
+        </section>
+
+        <!-- Section cho "Người dùng khác cũng thích" -->
+        <section id="collaborative-section" class="section" style="display: none;">
+            <h2>Người dùng khác cũng thích</h2>
+            <div class="movie-row scrollable-row" id="collaborative-movies">
+                <!-- Các phim được thêm từ JS -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal Popup for Movie Details -->
+<div id="movieModal" class="modal">
+    <div class="modal-content">
+        <!-- Nút đóng modal -->
+        <span class="close">&times;</span>
+
+        <!-- Tiêu đề phim -->
+        <h2 id="movieTitle" class="modal-title">Tên phim</h2>
+
+        <!-- Poster phim -->
+        <div class="modal-poster-container">
+            <img id="moviePoster" src="" alt="Poster" class="modal-poster">
+        </div>
+
+        <!-- Thông tin chi tiết phim -->
+        <div class="modal-details">
+            <p id="movieYear" class="modal-year">Năm phát hành: 2024</p>
+            <p id="movieRating" class="modal-rating">Điểm trung bình: 8.5</p>
+            <p id="movieDescription" class="modal-description">
+                Đây là phần mô tả phim, cung cấp thêm thông tin về nội dung và thông điệp của bộ phim.
+            </p>
+        </div>
+
+        <!-- Phần đánh giá -->
+        <div id="rating-stars" class="modal-rating-section">
+            <h3>Đánh giá phim:</h3>
+            <div class="stars">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <!-- Thêm phần hiển thị thông báo -->
+            <p id="ratingMessage" style="color: #4caf50; font-size: 14px; margin-top: 10px; display: none;"></p>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Lịch sử đánh giá -->
+<div id="historyModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeHistory">&times;</span>
+        <h2>Lịch sử đánh giá</h2>
+        <ul id="historyList" style="list-style: none; padding: 0; color: #fff;"></ul>
+    </div>
+</div>
+
+    <!-- Link to External JavaScript -->
+    <script src="mainpage.js"></script>
+</body>
+</html>
