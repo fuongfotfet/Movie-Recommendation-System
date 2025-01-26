@@ -5,18 +5,18 @@ from sklearn.neighbors import NearestNeighbors
 
 # Tải và chuẩn bị dữ liệu
 user_columns = ['user_id', 'age', 'sex', 'occupation', 'zip_code']
-users_df = pd.read_csv(r'data\u_user.csv', sep='|', names=user_columns)
+users_df = pd.read_csv(r'../data/u_user.csv', sep='|', names=user_columns)
 
 movie_columns = ['movie_id', 'title', 'release_date', 'video_release_date', 'imdb_url']
 movies_df = pd.read_csv(
-    r'data\u_item.csv',
+    r'../data/u_item.csv',
     sep='|', 
     names=movie_columns + [f'genre_{i}' for i in range(19)],
     encoding='latin-1'
 )[["movie_id", "title"]]
 
 ratings_columns = ['user_id', 'movie_id', 'rating', 'unix_timestamp']
-ratings_df = pd.read_csv(r'data\u_data.csv', sep='\t', names=ratings_columns)
+ratings_df = pd.read_csv(r'../data/u_data.csv', sep='\t', names=ratings_columns)
 ratings_df.drop("unix_timestamp", inplace=True, axis=1)
 
 # Kết hợp dữ liệu ratings và movie
