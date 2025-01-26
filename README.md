@@ -100,6 +100,7 @@ pip install numpy pandas scikit-learn faiss tensorflow
 
 ---
 
+***Note: The prototype only using Content-based and FAISS model***
 ## Prototype UI
 
 ### 1. Select Genres
