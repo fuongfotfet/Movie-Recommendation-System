@@ -73,7 +73,7 @@ pip install numpy pandas scikit-learn faiss tensorflow
 1. **Clone or Download the Repository**
 
    ```bash
-   git clone https://github.com/<Username>/Movie-Recommendation-System.git
+   git clone https://github.com/fuongfotfet/Movie-Recommendation-System.git
    cd Movie-Recommendation-System
    ```
 
