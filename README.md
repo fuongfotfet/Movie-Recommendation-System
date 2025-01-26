@@ -67,7 +67,7 @@ Make sure you have **Python 3.7+** (or above). Install dependencies:
 ```bash
 pip install numpy pandas scikit-learn faiss tensorflow
 ```
-
+You may have to install the movies metadata from TMDB too :b
 ## Quick Start
 
 1. **Clone or Download the Repository**
