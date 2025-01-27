@@ -116,7 +116,7 @@ Users can type or select a movie title from a dropdown or list to trigger the re
 ### 3. Recommendations
 ![Movie Recommendations UI](document/recommendations.png)
 
-The system will generate a list of recommended movies based on NCF, KNN+FAISS, or Content-based approaches.
+The system will generate a list of recommended movies based on KNN+FAISS, or Content-based approaches.
 
 ---
 
@@ -137,7 +137,7 @@ Please follow the standard GitHub workflow for making contributions.
 - [Phạm Hùng Phong](mailto:phong.ph225060@sis.hust.edu.vn)
 - [Nguyễn Quốc Thái](mailto:thai.nq225083@sis.hust.edu.vn)
 
-All are students at the **School of Information and Technology** - **Hanoi University of Science and Technology**.
+All are students at the **School of Information and Communication Technology** - **Hanoi University of Science and Technology**.
 
 For further inquiries or suggestions, contact us via email or create an [Issue](../../issues).
 
